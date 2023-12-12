@@ -1,5 +1,5 @@
 import Signup from "./Signup";
 
 export default () => {
-  return <Signup type={"teacher"} />;
+  return <Signup type={"Teacher"} />;
 };

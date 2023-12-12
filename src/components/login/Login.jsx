@@ -1,8 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Logo from "../../assets/images/logo.png";
 
 export default (props) => {
   const user_type = props.type;
+  const lower_case_user_type = user_type.toLowerCase();
+
   let other_user_type = "teacher";
 
   if (user_type === "Teacher") {
@@ -85,21 +88,21 @@ export default (props) => {
               <div>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Not a member?{" "}
-                  <a
-                    href="#"
+                  <Link
+                    to={`/signup/${lower_case_user_type}`}
                     className="font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
                     SignUp
-                  </a>
+                  </Link>
                 </p>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Are you a {other_user_type}?{" "}
-                  <a
-                    href="#"
+                  <Link
+                    to={`/login/${other_user_type}`}
                     className="font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
                     Login here
-                  </a>
+                  </Link>
                 </p>
               </div>
             </form>

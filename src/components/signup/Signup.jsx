@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "..//../assets/images/Logo.png";
 import { useState } from "react";
-import student from "./student";
+import { Link } from "react-router-dom";
 
 export default (props) => {
   const [name, setname] = useState("");
@@ -10,6 +10,8 @@ export default (props) => {
   const [repassword, setrepassword] = useState("");
 
   const user_type = props.type;
+  const lower_case_user_type = user_type.toLowerCase();
+
   let other_user_type = "teacher";
 
   if (user_type === "Teacher") {
@@ -25,7 +27,7 @@ export default (props) => {
       repassword: repassword,
     };
 
-    if (user_type === "student") {
+    if (user_type === "Student") {
       console.log({ student: true, ...userdata });
     } else {
       console.log({ teacher: true, ...userdata });
@@ -177,21 +179,21 @@ export default (props) => {
               <div>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Already have an account?{" "}
-                  <a
-                    href="#"
+                  <Link
+                    to={`/login/${lower_case_user_type}`}
                     className="font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
                     Login here
-                  </a>
+                  </Link>
                 </p>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Are you a {other_user_type}?{" "}
-                  <a
-                    href="#"
+                  <Link
+                    to={`/signup/${other_user_type}`}
                     className="font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
                     Signup here
-                  </a>
+                  </Link>
                 </p>
               </div>
             </form>

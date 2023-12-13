@@ -4,6 +4,7 @@ import Student_log from "./components/login/student_log";
 import Teacher_log from "./components/login/teacher_log";
 import Student from "./components/signup/student";
 import Teacher from "./components/signup/teacher";
+import Dashboard from "./components/dashboard";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/signup/teacher" element={<Teacher />} />
         <Route path="/login/student" element={<Student_log />} />
         <Route path="/login/teacher" element={<Teacher_log />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );

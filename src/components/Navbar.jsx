@@ -1,5 +1,6 @@
 import React from "react";
 import { Fragment } from "react";
+import Logo from "../assets/images/logo.png";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
@@ -54,11 +55,7 @@ export default () => {
               <div className="flex h-16 items-center justify-between">
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
-                    <img
-                      className="h-8 w-8"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                      alt="Your Company"
-                    />
+                    <img className="h-20 w-20 mt-2" src={Logo} alt="Logo" />
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-10 flex items-baseline space-x-4">

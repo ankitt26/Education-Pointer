@@ -5,12 +5,14 @@ import Teacher_log from "./components/login/teacher_log";
 import Student from "./components/signup/student";
 import Teacher from "./components/signup/teacher";
 import Dashboard from "./components/dashboard";
+import Home from "./components/Home";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Student />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/signup/student" element={<Student />} />
         <Route path="/signup/teacher" element={<Teacher />} />
         <Route path="/login/student" element={<Student_log />} />

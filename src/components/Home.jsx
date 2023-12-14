@@ -5,10 +5,10 @@ import Logo from "../assets/images/logo.png";
 import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "Test", href: "#" },
-  { name: "Result", href: "#" },
-  { name: "About", href: "#" },
-  { name: "Contact", href: "#" },
+  { name: "Test", href: "/login/student" },
+  { name: "Result", href: "/login/student" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/login/student" },
 ];
 
 export default () => {
@@ -22,7 +22,7 @@ export default () => {
           aria-label="Global"
         >
           <div className="flex lg:flex-1">
-            <Link to="/home" className="-m-1.5 p-1.5">
+            <Link to="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <img className="h-24 w-24" src={Logo} alt="logo" />
             </Link>
@@ -41,7 +41,7 @@ export default () => {
             {navigation.map((item) => (
               <Link
                 key={item.name}
-                to="/login/student"
+                to={item.href}
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 {item.name}
@@ -85,7 +85,7 @@ export default () => {
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
-                      to="/login/student"
+                      to={item.href}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       {item.name}

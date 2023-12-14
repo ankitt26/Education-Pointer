@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import Logo from "../assets/images/logo.png";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 export default () => {
   const user = {
@@ -17,21 +18,21 @@ export default () => {
 
   if (user_type === "student") {
     navigation = [
-      { name: "Dashboard", href: "#", current: true },
+      { name: "Dashboard", href: "/dashboard", current: true },
       { name: "Tests", href: "#", current: false },
       { name: "Results", href: "#", current: false },
       { name: "Calender", href: "#", current: false },
-      { name: "About", href: "#", current: false },
+      { name: "About", href: "/about", current: false },
       { name: "Contact", href: "#", current: false },
     ];
   } else if (user_type == "teacher") {
     navigation = [
-      { name: "Dashboard", href: "#", current: true },
+      { name: "Dashboard", href: "/dashboard", current: true },
       { name: "Tests", href: "#", current: false },
       { name: "Add Tests", href: "#", current: false },
       { name: "Students Results", href: "#", current: false },
       { name: "Calender", href: "#", current: false },
-      { name: "About", href: "#", current: false },
+      { name: "About", href: "/about", current: false },
       { name: "Contact", href: "#", current: false },
     ];
   }
@@ -55,14 +56,16 @@ export default () => {
               <div className="flex h-16 items-center justify-between">
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
-                    <img className="h-20 w-20 mt-2" src={Logo} alt="Logo" />
+                    <Link to="/">
+                      <img className="h-20 w-20 mt-2" src={Logo} alt="Logo" />
+                    </Link>
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-10 flex items-baseline space-x-4">
                       {navigation.map((item) => (
-                        <a
+                        <Link
                           key={item.name}
-                          href={item.href}
+                          to={item.href}
                           className={classNames(
                             item.current
                               ? "bg-gray-900 text-white"
@@ -72,7 +75,7 @@ export default () => {
                           aria-current={item.current ? "page" : undefined}
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>

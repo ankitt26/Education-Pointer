@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import Logo from "../assets/images/logo.png";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default () => {
   const user = {
@@ -12,13 +12,16 @@ export default () => {
     imageUrl:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   };
+
+  const location = useLocation();
+  const pathname = location.pathname;
   let navigation;
 
   let user_type = "student";
 
   if (user_type === "student") {
     navigation = [
-      { name: "Dashboard", href: "/dashboard", current: true },
+      { name: "Dashboard", href: "/dashboard", current: false },
       { name: "Tests", href: "#", current: false },
       { name: "Results", href: "#", current: false },
       { name: "Calender", href: "#", current: false },
@@ -27,7 +30,7 @@ export default () => {
     ];
   } else if (user_type == "teacher") {
     navigation = [
-      { name: "Dashboard", href: "/dashboard", current: true },
+      { name: "Dashboard", href: "/dashboard", current: false },
       { name: "Tests", href: "#", current: false },
       { name: "Add Tests", href: "#", current: false },
       { name: "Students Results", href: "#", current: false },
@@ -42,6 +45,14 @@ export default () => {
     { name: "Settings", href: "#" },
     { name: "Sign out", href: "#" },
   ];
+
+  navigation.forEach((item) => {
+    if (item.href === pathname) {
+      item.current = true;
+    } else {
+      item.current === false;
+    }
+  });
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/logo.png";
 
 export default (props) => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+
+  const navigate = useNavigate();
   const user_type = props.type;
   const lower_case_user_type = user_type.toLowerCase();
   let other_user_type = "teacher";
@@ -25,20 +27,22 @@ export default (props) => {
     } else {
       console.log({ teacher: true, ...userdata });
     }
+
+    navigate("/dashboard");
   };
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900 h-screen">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <a
-          href="#"
+        <Link
+          to="/"
           className="flex items-center mb-2 text-2xl text-gray-900 dark:text-white"
         >
           <img className="w-20 h-20 mr-0" src={Logo} alt="logo" />
           <span className="text-xl ml-0 font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
             Ed. Pointer
           </span>
-        </a>
+        </Link>
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">

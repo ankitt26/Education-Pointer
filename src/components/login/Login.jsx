@@ -1,18 +1,19 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../assets/images/logo.png";
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import Logo from '../../assets/images/logo.png';
 
-export default (props) => {
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
+const Login = (props) => {
+  const [email, setemail] = useState('');
+  const [password, setpassword] = useState('');
 
   const navigate = useNavigate();
   const user_type = props.type;
   const lower_case_user_type = user_type.toLowerCase();
-  let other_user_type = "teacher";
+  let other_user_type = 'teacher';
 
-  if (user_type === "Teacher") {
-    other_user_type = "student";
+  if (user_type === 'Teacher') {
+    other_user_type = 'student';
   }
 
   const submitdata = (e) => {
@@ -22,13 +23,13 @@ export default (props) => {
       password: password,
     };
 
-    if (user_type === "Student") {
+    if (user_type === 'Student') {
       console.log({ student: true, ...userdata });
     } else {
       console.log({ teacher: true, ...userdata });
     }
 
-    navigate("/dashboard");
+    navigate('/dashboard');
   };
 
   return (
@@ -36,8 +37,7 @@ export default (props) => {
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <Link
           to="/"
-          className="flex items-center mb-2 text-2xl text-gray-900 dark:text-white"
-        >
+          className="flex items-center mb-2 text-2xl text-gray-900 dark:text-white">
           <img className="w-20 h-20 mr-0" src={Logo} alt="logo" />
           <span className="text-xl ml-0 font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
             Ed. Pointer
@@ -52,8 +52,7 @@ export default (props) => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Your email
                 </label>
                 <input
@@ -73,15 +72,13 @@ export default (props) => {
                 <div className="flex items-center justify-between">
                   <label
                     htmlFor="password"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Password
                   </label>
                   <div className="text-sm">
                     <a
                       href="#"
-                      className="font-semibold text-indigo-600 hover:text-indigo-500"
-                    >
+                      className="font-semibold text-indigo-600 hover:text-indigo-500">
                       Forgot password?
                     </a>
                   </div>
@@ -104,27 +101,24 @@ export default (props) => {
               <div>
                 <button
                   type="submit"
-                  className=" mt-12 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
+                  className=" mt-12 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                   Sign in
                 </button>
               </div>
               <div>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Not a member?{" "}
+                  Not a member?{' '}
                   <Link
                     to={`/signup/${lower_case_user_type}`}
-                    className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                  >
+                    className="font-medium text-primary-600 hover:underline dark:text-primary-500">
                     SignUp
                   </Link>
                 </p>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Are you a {other_user_type}?{" "}
+                  Are you a {other_user_type}?{' '}
                   <Link
                     to={`/login/${other_user_type}`}
-                    className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                  >
+                    className="font-medium text-primary-600 hover:underline dark:text-primary-500">
                     Login here
                   </Link>
                 </p>
@@ -136,3 +130,9 @@ export default (props) => {
     </section>
   );
 };
+
+Login.propTypes = {
+  type: PropTypes.string.isRequired, // Add prop validation for 'type'
+};
+
+export default Login;

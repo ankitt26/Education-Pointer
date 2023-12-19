@@ -1,6 +1,6 @@
-import Navbar from "./Navbar";
+import Navbar from './Navbar';
 
-export default () => {
+export default function Dashboard() {
   return (
     <>
       <Navbar />
@@ -13,7 +13,7 @@ export default () => {
       </header>
       <main>
         <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8"></div>
-      </main>{" "}
+      </main>{' '}
     </>
   );
-};
+}

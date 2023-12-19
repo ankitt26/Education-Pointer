@@ -1,4 +1,4 @@
-import Login from "./Login";
-export default () => {
-  return <Login type={"Student"} />;
-};
+import Login from './Login';
+export default function Student_log() {
+  return <Login type={'Student'} />;
+}

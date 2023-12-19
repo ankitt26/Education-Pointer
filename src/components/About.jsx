@@ -1,6 +1,6 @@
-import Navbar from "./Navbar";
-import About from "../assets/images/about.png";
-export default () => {
+import Navbar from './Navbar';
+import AboutImg from '../assets/images/about.png';
+export default function About() {
   return (
     <>
       <Navbar />
@@ -26,7 +26,7 @@ export default () => {
 
           <div className="w-80 y-80 mr-10  flex-nowrap">
             <img
-              src={About}
+              src={AboutImg}
               // src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=396&h=528&q=80"
               alt="image"
               className=" w-80 mt-10"
@@ -36,4 +36,4 @@ export default () => {
       </div>
     </>
   );
-};
+}

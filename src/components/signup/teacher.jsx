@@ -1,5 +1,5 @@
-import Signup from "./Signup";
+import Signup from './Signup';
 
-export default () => {
-  return <Signup type={"Teacher"} />;
-};
+export default function Teacher() {
+  return <Signup type={'Teacher'} />;
+}

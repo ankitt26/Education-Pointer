@@ -21,21 +21,21 @@ export default function Navbar() {
   if (user_type === 'student') {
     navigation = [
       { name: 'Dashboard', href: '/dashboard', current: false },
-      { name: 'Tests', href: '#', current: false },
-      { name: 'Results', href: '#', current: false },
-      { name: 'Calender', href: '#', current: false },
+      { name: 'Tests', href: '/tests', current: false },
+      { name: 'Results', href: '/result', current: false },
+      { name: 'Calender', href: '/calender', current: false },
       { name: 'About', href: '/about', current: false },
-      { name: 'Contact', href: '#', current: false },
+      { name: 'Contact', href: '/contact', current: false },
     ];
   } else if (user_type == 'teacher') {
     navigation = [
       { name: 'Dashboard', href: '/dashboard', current: false },
-      { name: 'Tests', href: '#', current: false },
-      { name: 'Add Tests', href: '#', current: false },
-      { name: 'Students Results', href: '#', current: false },
-      { name: 'Calender', href: '#', current: false },
+      { name: 'Tests', href: '/tests', current: false },
+      { name: 'Add Tests', href: '/add_tests', current: false },
+      { name: 'Students Results', href: '/students_result', current: false },
+      { name: 'Calender', href: '/calender', current: false },
       { name: 'About', href: '/about', current: false },
-      { name: 'Contact', href: '#', current: false },
+      { name: 'Contact', href: '/contact', current: false },
     ];
   }
 

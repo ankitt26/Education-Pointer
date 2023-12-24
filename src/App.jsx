@@ -1,12 +1,13 @@
-import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Student_log from "./components/login/student_log";
-import Teacher_log from "./components/login/teacher_log";
-import Student from "./components/signup/student";
-import Teacher from "./components/signup/teacher";
-import Dashboard from "./components/dashboard";
-import Home from "./components/Home";
-import About from "./components/About";
+import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Student_log from './components/login/student_log';
+import Teacher_log from './components/login/teacher_log';
+import Student from './components/signup/student';
+import Teacher from './components/signup/teacher';
+import Dashboard from './components/dashboard';
+import Home from './components/Home';
+import About from './components/About';
+import Construction from './components/construction';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login/teacher" element={<Teacher_log />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/about" element={<About />} />
+        <Route path="*" element={<Construction />} />
       </Routes>
     </BrowserRouter>
   );
